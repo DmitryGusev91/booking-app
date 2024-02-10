@@ -1,9 +1,9 @@
 const express = require("express");
 const cors = require("cors");
 require("dotenv").config();
-const connectDB = require("./configs/db");
 const cookieParser = require("cookie-parser");
 const { v2: cloudinary } = require("cloudinary");
+const mongoose = require("mongoose");
 
 const authRouter = require("./routers/authRouter");
 const myHotelsRouter = require("./routers/myHotelRouter");
@@ -21,7 +21,7 @@ cloudinary.config({
   api_secret: process.env.CLOUDINARY_API_SECRET,
 });
 
-connectDB();
+mongoose.connect(process.env.MONGODB_CONNECTION_STRING);
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
