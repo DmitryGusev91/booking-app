@@ -104,7 +104,7 @@ router.post("/logout", (req, res) => {
     expires: new Date(0),
     secure: true,
     httpOnly: true,
-
+    sameSite: "None",
   });
   res.send();
 });
