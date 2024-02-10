@@ -13,7 +13,7 @@ const bookingRouter = require("./routers/my-bookings");
 
 const app = express();
 app.use(cookieParser());
-const port = 8000;
+const port = process.env.PORT;
 
 cloudinary.config({
   cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
