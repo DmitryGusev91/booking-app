@@ -40,6 +40,7 @@ router.post(
       res.cookie("auth_token", token, {
         sameSite: "None",
         httpOnly: true,
+        secure: true,
         secure: process.env.NODE_ENV === "production",
         maxAge: 3600000,
       });
@@ -83,6 +84,7 @@ router.post(
       );
       res.cookie("auth_token", token, {
         sameSite: "None",
+        secure: true,
         httpOnly: true,
         secure: process.env.NODE_ENV === "production",
         maxAge: 3600000,
