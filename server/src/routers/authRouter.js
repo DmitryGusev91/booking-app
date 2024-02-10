@@ -38,6 +38,7 @@ router.post(
         { expiresIn: "1h" }
       );
       res.cookie("auth_token", token, {
+        sameSite: "None",
         httpOnly: true,
         secure: process.env.NODE_ENV === "production",
         maxAge: 3600000,
@@ -81,6 +82,7 @@ router.post(
         { expiresIn: "1h" }
       );
       res.cookie("auth_token", token, {
+        sameSite: "None",
         httpOnly: true,
         secure: process.env.NODE_ENV === "production",
         maxAge: 3600000,
