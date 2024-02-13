@@ -39,7 +39,7 @@ router.post(
       );
       res.cookie("auth_token", token, {
         httpOnly: true,
-        secure: process.env.NODE_ENV === "production",
+        secure: true,
         maxAge: 3600000,
       });
       console.log(token);
@@ -83,7 +83,7 @@ router.post(
       );
       res.cookie("auth_token", token, {
         httpOnly: true,
-        secure: process.env.NODE_ENV === "production",
+        secure: true,
         maxAge: 3600000,
       });
       return res.status(200).send({ message: "User registered OK." });
