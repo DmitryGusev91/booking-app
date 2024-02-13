@@ -38,7 +38,6 @@ router.post(
         { expiresIn: "1h" }
       );
       res.cookie("auth_token", token, {
-        sameSite: "None",
         httpOnly: true,
         secure: process.env.NODE_ENV === "production",
         maxAge: 3600000,
@@ -82,7 +81,6 @@ router.post(
         { expiresIn: "1h" }
       );
       res.cookie("auth_token", token, {
-        sameSite: "None",
         httpOnly: true,
         secure: process.env.NODE_ENV === "production",
         maxAge: 3600000,
@@ -102,8 +100,6 @@ router.get("/validate-token", verifyToken, (req, res) => {
 router.post("/logout", (req, res) => {
   res.cookie("auth_token", "", {
     expires: new Date(0),
-    secure: true,
-    sameSite: "None",
   });
   res.send();
 });
