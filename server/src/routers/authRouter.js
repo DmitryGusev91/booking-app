@@ -39,7 +39,7 @@ router.post(
       );
       res.cookie("auth_token", token, {
         httpOnly: true,
-        sameSite: 'Lax',
+        sameSite: 'None',
         secure: true,
         maxAge: 3600000,
       });
@@ -84,7 +84,7 @@ router.post(
       );
       res.cookie("auth_token", token, {
         httpOnly: true,
-        sameSite: 'Lax',
+        sameSite: 'None',
         secure: true,
         maxAge: 3600000,
       });
@@ -104,7 +104,7 @@ router.post("/logout", (req, res) => {
   res.cookie("auth_token", "", {
     expires: new Date(0),
     secure: true,
-    sameSite: 'Lax',
+    sameSite: 'None',
   });
   res.send();
 });
