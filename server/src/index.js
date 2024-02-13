@@ -4,7 +4,6 @@ require("dotenv").config();
 const cookieParser = require("cookie-parser");
 const { v2: cloudinary } = require("cloudinary");
 const mongoose = require("mongoose");
-const path = require('path');
 
 const authRouter = require("./routers/authRouter");
 const myHotelsRouter = require("./routers/myHotelRouter");
@@ -33,12 +32,6 @@ app.use(
   })
 );
 
-if (process.env.NODE_ENV === "production") {
-  app.use(express.static("client/src"));
-  app.get("*", (req, res) => {
-    res.sendFile(path.resolve(__dirname, "..","client", "src", "index.html"));
-  });
-}
 
 app.use("/auth", authRouter);
 app.use("/my-hotels", myHotelsRouter);
