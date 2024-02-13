@@ -39,6 +39,7 @@ router.post(
       );
       res.cookie("auth_token", token, {
         httpOnly: true,
+        sameSite: 'None',
         secure: true,
         maxAge: 3600000,
       });
@@ -83,6 +84,7 @@ router.post(
       );
       res.cookie("auth_token", token, {
         httpOnly: true,
+        sameSite: 'None',
         secure: true,
         maxAge: 3600000,
       });
