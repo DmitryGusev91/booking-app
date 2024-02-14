@@ -39,7 +39,6 @@ router.post(
       );
       res.cookie("auth_token", token, {
         httpOnly: true,
-        sameSite: 'None',
         secure: true,
         maxAge: 3600000,
       });
@@ -84,7 +83,6 @@ router.post(
       );
       res.cookie("auth_token", token, {
         httpOnly: true,
-        sameSite: 'None',
         secure: true,
         maxAge: 3600000,
       });
@@ -103,9 +101,7 @@ router.get("/validate-token", verifyToken, (req, res) => {
 router.post("/logout", (req, res) => {
   res.cookie("auth_token", "", {
     expires: new Date(0),
-    httpOnly: true,
-    secure: true,
-    sameSite: 'None',
+
   });
   res.send();
 });
