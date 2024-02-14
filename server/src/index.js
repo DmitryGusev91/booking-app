@@ -4,6 +4,7 @@ require("dotenv").config();
 const cookieParser = require("cookie-parser");
 const { v2: cloudinary } = require("cloudinary");
 const mongoose = require("mongoose");
+const path = require("path");
 
 const authRouter = require("./routers/authRouter");
 const myHotelsRouter = require("./routers/myHotelRouter");
@@ -31,6 +32,8 @@ app.use(
     credentials: true,
   })
 );
+
+app.use(express.static(path.join(__dirname, "../../client/dist")));
 
 app.use("/auth", authRouter);
 app.use("/my-hotels", myHotelsRouter);
