@@ -33,15 +33,17 @@ app.use(
   })
 );
 
-
 app.use(express.static(path.join(__dirname, "../../client/dist")));
-
 
 app.use("/auth", authRouter);
 app.use("/my-hotels", myHotelsRouter);
 app.use("/hotels", hotelsRouter);
 app.use("/users", usersRouter);
 app.use("/my-bookings", bookingRouter);
+
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "../../client/dist/index.html"));
+});
 
 app.listen(port, () => {
   console.log(`server is running on http://localhost:${port}`);
