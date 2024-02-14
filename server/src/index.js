@@ -33,7 +33,9 @@ app.use(
   })
 );
 
+
 app.use(express.static(path.join(__dirname, "../../client/dist")));
+
 
 app.use("/auth", authRouter);
 app.use("/my-hotels", myHotelsRouter);

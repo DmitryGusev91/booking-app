@@ -39,7 +39,7 @@ router.post(
       );
       res.cookie("auth_token", token, {
         httpOnly: true,
-        secure: process.env.NODE_ENV === "production",
+        secure: process.env.NODE_ENV==="production",
         maxAge: 3600000,
       });
       return res.status(200).json({ userId: existingUser._id });
@@ -82,7 +82,7 @@ router.post(
       );
       res.cookie("auth_token", token, {
         httpOnly: true,
-        secure: process.env.NODE_ENV === "production",
+        secure: process.env.NODE_ENV==="production",
         maxAge: 3600000,
       });
       return res.status(200).send({ message: "User registered OK." });
@@ -100,6 +100,7 @@ router.get("/validate-token", verifyToken, (req, res) => {
 router.post("/logout", (req, res) => {
   res.cookie("auth_token", "", {
     expires: new Date(0),
+
   });
   res.send();
 });
